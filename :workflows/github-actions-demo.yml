@@ -1,0 +1,2 @@
+- name: github-commit-to-trello-card
+  uses: dalezak/github-commit-to-trello-card@v3
