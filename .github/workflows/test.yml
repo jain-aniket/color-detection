@@ -1,2 +1,20 @@
-name: github-commit-to-trello-card
-uses: dalezak/github-commit-to-trello-card@v3
+name: GitHub Commit To Trello Comment
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: dalezak/github-commit-to-trello-card@main
+        with:
+          trello-api-key: ${{ secrets.TRELLO_KEY }}
+          trello-auth-token: ${{ secrets.TRELLO_TOKEN }}
+          trello-board-id: ${{ secrets.TRELLO_BOARD }}
+          trello-card-action: "Attachment"
+          trello-list-name-commit: "Testing List"
+          trello-list-name-pr-open: "Testing"
+          trello-list-name-pr-closed: "Done"
